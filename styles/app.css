@@ -1,0 +1,63 @@
+/* ===========================================
+ * 应用主题变量定义 - CSS 自定义属性
+ * =========================================== */
+
+:root {
+    /* --- 品牌色彩系统 --- */
+    --primary-color: #1677FF;
+    --success-color: #07c160;
+    --warning-color: #FFA500;
+    --error-color: #FF4757;
+    --info-color: #1890FF;
+
+    /* --- 文字颜色 --- */
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --text-tertiary: #999999;
+    --text-disabled: #c0c0c0;
+    --text-link: #576b95;
+
+    /* --- 背景颜色 --- */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --bg-disabled: #f5f5f5;
+    --bg-hover: #f1f1f1;
+
+    /* --- 边框颜色 --- */
+    --border-color: #e8e8e8;
+    --border-light: #f0f0f0;
+    --border-dark: #dcdcdc;
+
+    /* --- 常用尺寸 --- */
+    /* 间距 */
+    --spacing-xs: 10rpx;
+    --spacing-sm: 15rpx;
+    --spacing-md: 20rpx;
+    --spacing-lg: 30rpx;
+    --spacing-xl: 40rpx;
+
+    /* 字体大小 */
+    --font-size-xs: 22rpx;
+    --font-size-sm: 24rpx;
+    --font-size-md: 26rpx;
+    --font-size-lg: 28rpx;
+    --font-size-xl: 32rpx;
+    --font-size-xxl: 36rpx;
+
+    /* 圆角 */
+    --border-radius-sm: 6rpx;
+    --border-radius-md: 8rpx;
+    --border-radius-lg: 12rpx;
+    --border-radius-xl: 16rpx;
+
+    /* --- 阴影 --- */
+    --shadow-sm: 0 2rpx 8rpx rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4rpx 16rpx rgba(0, 0, 0, 0.12);
+
+    /* --- 层级 --- */
+    --z-index-dropdown: 1000;
+    --z-index-fixed: 1020;
+    --z-index-modal: 1040;
+    --z-index-popup: 1060;
+    --z-index-toast: 1080;
+}
