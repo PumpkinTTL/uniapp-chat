@@ -3,7 +3,7 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "表格工具"
+				"navigationBarTitleText": "首页"
 			}
 		},
 		{
@@ -14,9 +14,9 @@
 		}
 	],
 	"globalStyle": {
-		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "表格工具",
-		"navigationBarBackgroundColor": "#F8F8F8",
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "Uniapp模板",
+		"navigationBarBackgroundColor": "#007AFF",
 		"backgroundColor": "#F8F8F8"
 	},
 	"tabBar": {

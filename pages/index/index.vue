@@ -1,111 +1,88 @@
-<template>
-	<view class="home-page">
-		<!-- 英雄区域 -->
-		<HeroSection @primary-action="handleStart" @secondary-action="handleLearnMore" />
-
-		<!-- 功能特性 -->
-		<FeatureGrid :title="featureTitle" :features="features" />
-
-		<!-- 产品介绍 -->
-		<InfoSection v-for="info in infoSections" :key="info.id" :title="info.title" :subtitle="info.subtitle"
-			:description="info.description" :image-url="info.imageUrl" L :button-text="info.buttonText"
-			:reverse="info.reverse" @action="info.action" />
-
-		<!-- 应用底部 -->
-		<AppFooter @privacy="handlePrivacy" @terms="handleTerms" @contact="handleContact" />
-
-	</view>
-</template>
+<template><view class="home-page"><BannerSwiper :banner-list="bannerList" /><FeatureGrid :title="featureTitle" :features="features" /><QuickStart @start="handleStart" @docs="handleDocs" /><TechStack /><AppFooter @privacy="handlePrivacy" @terms="handleTerms" @contact="handleContact" /></view></template>
 
 <script setup>
-import {
-	ref
-} from 'vue'
-import HeroSection from '../../components/home/HeroSection.vue'
+import { ref } from 'vue'
+import BannerSwiper from '../../components/home/BannerSwiper.vue'
 import FeatureGrid from '../../components/home/FeatureGrid.vue'
-import InfoSection from '../../components/home/InfoSection.vue'
+import QuickStart from '../../components/home/QuickStart.vue'
+import TechStack from '../../components/home/TechStack.vue'
 import AppFooter from '../../components/home/AppFooter.vue'
 
-// 功能特性标题
-const featureTitle = '核心功能'
-
-// 功能特性数据
-const features = ref([{
-	title: '高效编辑',
-	description: '支持批量操作、快速查找替换，让数据处理更加高效',
-	icon: '/static/icons/edit.svg'
-},
-{
-	title: '多格式支持',
-	description: '支持Excel、CSV等多种格式的导入导出',
-	icon: '/static/icons/format.svg'
-},
-{
-	title: '数据可视化',
-	description: '内置图表功能，让数据一目了然',
-	icon: '/static/icons/chart.svg'
-},
-{
-	title: '云端同步',
-	description: '实时保存，多设备同步，随时随地访问数据',
-	icon: '/static/icons/sync.svg'
-}
+// 轮播图数据
+const bannerList = ref([
+	{
+		title: 'Uniapp 模板',
+		subtitle: '快速开发，多端发布',
+		description: '基于 Vue 3 的现代化开发模板，一套代码多端运行',
+		bgColor: '#007AFF',
+		icon: '🚀'
+	},
+	{
+		title: '组件化开发',
+		subtitle: '丰富的组件库',
+		description: '提供常用组件，加速开发流程',
+		bgColor: '#34C759',
+		icon: '📦'
+	},
+	{
+		title: 'TypeScript 支持',
+		subtitle: '类型安全',
+		description: '完整的 TypeScript 支持，提升代码质量',
+		bgColor: '#FF9500',
+		icon: '📘'
+	}
 ])
 
-// 产品介绍数据
-const infoSections = ref([{
-	id: 1,
-	title: '专业的表格处理能力',
-	subtitle: '强大而灵活',
-	description: '提供媲美桌面级应用的表格处理能力，支持复杂的公式计算、数据筛选、排序等功能。无论是简单的数据记录还是复杂的业务分析，都能轻松应对。',
-	imageUrl: '/static/images/table-feature.jpg',
-	buttonText: '了解详情',
-	reverse: false,
-	action: () => {
-		uni.showToast({
-			title: '功能介绍',
-			icon: 'none'
-		})
+// 功能特性标题
+const featureTitle = '核心特性'
+
+// 功能特性数据
+const features = ref([
+	{
+		title: '跨端兼容',
+		description: '支持发布到iOS、Android、Web以及各种小程序平台',
+		iconType: 'phone'
+	},
+	{
+		title: 'Vue 3 生态',
+		description: '基于 Vue 3 Composition API，享受现代前端开发体验',
+		iconType: 'loop'
+	},
+	{
+		title: '组件丰富',
+		description: '内置丰富的UI组件，满足各种业务场景需求',
+		iconType: 'list'
+	},
+	{
+		title: '开发高效',
+		description: '热更新、TypeScript、ESLint，提升开发效率',
+		iconType: 'flag'
+	},
+	{
+		title: '性能优异',
+		description: '优化的渲染机制，保证流畅的用户体验',
+		iconType: 'star'
+	},
+	{
+		title: '易于扩展',
+		description: '模块化设计，方便二次开发和功能扩展',
+		iconType: 'gear'
 	}
-},
-{
-	id: 2,
-	title: '跨平台无缝使用',
-	subtitle: '随时随地处理数据',
-	description: '支持Web、iOS、Android等多个平台，数据实时同步。无论您使用什么设备，都能获得一致的使用体验，真正实现移动办公。',
-	imageUrl: '/static/images/cross-platform.jpg',
-	buttonText: '了解更多',
-	reverse: true,
-	action: () => {
-		uni.showToast({
-			title: '跨平台功能',
-			icon: 'none'
-		})
-	}
-}
 ])
 
 // 事件处理
 const handleStart = () => {
-	navigateToTable()
-}
-
-const handleLearnMore = () => {
 	uni.showToast({
-		title: '了解更多',
-		icon: 'none'
-	})
-}
-
-const navigateToTable = () => {
-	uni.showToast({
-		title: '即将跳转到表格功能',
+		title: '开始使用模板',
 		icon: 'success'
 	})
-	// 实际项目中使用 uni.navigateTo 跳转到表格页面
-	// uni.navigateTo({
-	//   url: '/pages/table/index'
-	// })
+}
+
+const handleDocs = () => {
+	uni.showToast({
+		title: '查看文档',
+		icon: 'none'
+	})
 }
 
 // 底部链接处理
@@ -133,37 +110,18 @@ const handleContact = () => {
 
 <style lang="scss">
 .home-page {
-	background-color: #f5f5f5;
-	padding-bottom: 100rpx;
+	min-height: 100vh;
+	padding-bottom: env(safe-area-inset-bottom);
 }
 
-/* 底部导航 */
-.bottom-nav {
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	background-color: $uni-bg-color;
-	padding: $uni-spacing-row-sm $uni-spacing-row-base;
-	z-index: 1000;
+/* 优化页面间距 */
+.home-page > *:not(:last-child) {
+	margin-bottom: 0;
 }
 
-.nav-btn {
-	width: 100%;
-	background-color: $uni-color-primary;
-	color: white;
-	border: none;
-	padding: 18rpx;
-	border-radius: $uni-border-radius-sm;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 10rpx;
-	font-size: $uni-font-size-base;
-	font-weight: 500;
-}
-
-.nav-text {
-	font-size: $uni-font-size-base;
+/* 滚动优化 */
+.home-page {
+	scroll-behavior: smooth;
+	-webkit-overflow-scrolling: touch;
 }
 </style>
