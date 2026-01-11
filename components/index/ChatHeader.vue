@@ -5,12 +5,10 @@
 			<uni-icons type="bars" size="24" color="#1E293B" />
 		</view>
 
-		<!-- 中间标题区域 -->
-		<view class="header-center">
+		<!-- 标题区域（左对齐） -->
+		<view class="header-title-wrapper">
 			<text class="header-title">{{ title }}</text>
-			<view v-if="totalUnread > 0" class="unread-badge">
-				<text class="unread-text">{{ totalUnread > 99 ? '99+' : totalUnread }}</text>
-			</view>
+			<text v-if="totalUnread > 0" class="unread-count">({{ totalUnread > 99 ? '99+' : totalUnread }})</text>
 		</view>
 
 		<!-- 右侧操作按钮 -->
@@ -66,12 +64,11 @@ const handleAddClick = () => {
 	flex-shrink: 0;
 }
 
-.header-center {
+.header-title-wrapper {
 	flex: 1;
 	display: flex;
 	align-items: center;
-	justify-content: center;
-	gap: 12rpx;
+	margin-left: 24rpx;
 }
 
 .header-title {
@@ -80,22 +77,11 @@ const handleAddClick = () => {
 	color: #1E293B;
 }
 
-.unread-badge {
-	min-width: 36rpx;
-	height: 36rpx;
-	background-color: #F43F5E;
-	border-radius: 18rpx;
-	padding: 0 10rpx;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.unread-text {
-	font-size: 22rpx;
-	font-weight: 500;
-	color: #FFFFFF;
-	line-height: 1;
+.unread-count {
+	font-size: 28rpx;
+	font-weight: 400;
+	color: #94A3B8;
+	margin-left: 8rpx;
 }
 
 .action-btn {

@@ -1,5 +1,8 @@
 <template>
 	<view class="chat-page">
+		<!-- 状态栏占位 -->
+		<StatusBar bg-color="#FFFFFF" />
+
 		<!-- 自定义导航栏 -->
 		<view class="custom-navbar">
 			<ChatHeader
@@ -33,6 +36,7 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import StatusBar from '@/components/common/StatusBar.vue'
 import ChatHeader from '@/components/index/ChatHeader.vue'
 import SearchBar from '@/components/index/SearchBar.vue'
 import MessageList from '@/components/index/MessageList.vue'
