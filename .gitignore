@@ -115,6 +115,9 @@ $RECYCLE.BIN/
 # UniApp specific
 .hbuilderx/
 uni_modules/.components/
+unpackage/dist/cache/
 
 # Claude Code specific
 .claude/
+.kiro/
+.shared/
