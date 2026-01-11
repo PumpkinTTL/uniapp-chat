@@ -168,14 +168,10 @@ const handleLoadMore = () => {
 
 // 消息点击
 const handleMessageClick = (message) => {
-	uni.showToast({
-		title: `点击: ${message.name}`,
-		icon: 'none'
+	// 跳转到聊天详情页
+	uni.navigateTo({
+		url: `/pages/chat/detail?id=${message.id}&name=${encodeURIComponent(message.name)}&online=${message.isOnline ? 'true' : 'false'}`
 	})
-	// TODO: 跳转到聊天详情页
-	// uni.navigateTo({
-	// 	url: `/pages/chat/detail?id=${message.id}`
-	// })
 }
 </script>
 
