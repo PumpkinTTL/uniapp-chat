@@ -32,7 +32,7 @@
 			@click="handleMessageClick"
 		/>
 	</view>
-</template>
+</template>		
 
 <script setup>
 import { ref, computed } from 'vue'

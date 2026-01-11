@@ -210,23 +210,60 @@ const handleEmoji = () => {
 	uni.showToast({ title: '表情功能', icon: 'none' })
 }
 
-const handleMorePanel = () => {
-	uni.showActionSheet({
-		itemList: ['图片', '拍照', '文件', '位置'],
-		success: (res) => {
-			if (res.tapIndex === 0) {
-				uni.chooseImage({
-					count: 1,
-					success: (res) => {
+const handleMorePanel = (type) => {
+	switch (type) {
+		case 'image':
+			uni.chooseImage({
+				count: 9,
+				success: (res) => {
+					res.tempFilePaths.forEach((path) => {
 						handleSend({
 							type: 'image',
-							content: res.tempFilePaths[0]
+							content: path
 						})
-					}
-				})
-			}
-		}
-	})
+					})
+				}
+			})
+			break
+		case 'camera':
+			uni.chooseImage({
+				count: 1,
+				camera: 'back',
+				success: (res) => {
+					handleSend({
+						type: 'image',
+						content: res.tempFilePaths[0]
+					})
+				}
+			})
+			break
+		case 'video':
+			uni.chooseVideo({
+				success: (res) => {
+					handleSend({
+						type: 'video',
+						content: res.tempFilePath
+					})
+				}
+			})
+			break
+		case 'location':
+			uni.chooseLocation({
+				success: (res) => {
+					handleSend({
+						type: 'location',
+						content: `${res.name} - ${res.address}`
+					})
+				}
+			})
+			break
+		case 'file':
+			uni.showToast({ title: '文件功能开发中', icon: 'none' })
+			break
+		case 'card':
+			uni.showToast({ title: '名片功能开发中', icon: 'none' })
+			break
+	}
 }
 
 const handleVoiceStart = () => {
@@ -272,7 +309,7 @@ const handleResend = (id) => {
 	flex-direction: column;
 	width: 100%;
 	height: 100vh;
-	background-color: #F8FAFC;
+	background-color: #EDEFF2;
 	overflow: hidden;
 }
 

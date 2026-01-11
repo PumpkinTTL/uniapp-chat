@@ -134,7 +134,7 @@ defineExpose({ scrollToBottom })
 	flex: 1;
 	width: 100%;
 	height: 100%;
-	background-color: #F8FAFC;
+	background-color: #EDEFF2;
 }
 
 .load-more-row {
