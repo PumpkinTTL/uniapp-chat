@@ -3,7 +3,8 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "首页"
+				"navigationBarTitleText": "消息",
+				"navigationStyle": "custom"
 			}
 		},
 		{
@@ -15,19 +16,19 @@
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
-		"navigationBarTitleText": "Uniapp模板",
-		"navigationBarBackgroundColor": "#007AFF",
-		"backgroundColor": "#F8F8F8"
+		"navigationBarTitleText": "UniChat",
+		"navigationBarBackgroundColor": "#1677FF",
+		"backgroundColor": "#F8FAFC"
 	},
 	"tabBar": {
-		"color": "#8a8a8a",
+		"color": "#94A3B8",
 		"selectedColor": "#1677FF",
 		"backgroundColor": "#ffffff",
 		"borderStyle": "black",
 		"list": [
 			{
 				"pagePath": "pages/index/index",
-				"text": "首页",
+				"text": "消息",
 				"iconPath": "/static/icons/home.png",
 				"selectedIconPath": "/static/icons/home_act.png"
 			},
